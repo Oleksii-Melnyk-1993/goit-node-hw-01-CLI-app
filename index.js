@@ -16,7 +16,7 @@ const argv = program.opts();
 const invokeAction = async ({ action, id, name, email, phone }) => {
   switch (action) {
     case "list":
-      const contactsList = await contactsService.listContacts;
+      const contactsList = await contactsService.listContacts();
       console.table(contactsList);
       break;
 
@@ -33,7 +33,6 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
     case "remove":
       const removeOneContact = await contactsService.removeContact(id);
       console.log(removeOneContact);
-      break;
       break;
 
     default:
